@@ -1,0 +1,30 @@
+{
+    "name": "reedware/nova-text-filter",
+    "description": "Adds a text filter component for resources and lenses.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "filter"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Reedware\\NovaTextFilter\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Reedware\\NovaTextFilter\\FilterServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
