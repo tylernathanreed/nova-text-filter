@@ -263,37 +263,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    resourceName: {
-      type: String,
-      required: true
+    props: {
+        resourceName: {
+            type: String,
+            required: true
+        },
+        filterKey: {
+            type: String,
+            required: true
+        },
+        lens: String
     },
-    filterKey: {
-      type: String,
-      required: true
+
+    methods: {
+        handleChange: function handleChange(event) {
+            this.$store.commit(this.resourceName + '/updateFilterState', {
+                filterClass: this.filterKey,
+                value: event.target.value
+            });
+
+            this.$emit('change');
+        }
     },
-    lens: String
-  },
 
-  methods: {
-    handleChange: function handleChange(event) {
-      this.$store.commit(this.resourceName + '/updateFilterState', {
-        filterClass: this.filterKey,
-        value: event.target.value
-      });
-
-      this.$emit('change');
+    computed: {
+        filter: function filter() {
+            return this.$store.getters[this.resourceName + '/getFilter'](this.filterKey);
+        },
+        placeholder: function placeholder() {
+            return this.filter.placeholder || this.filter.name;
+        },
+        value: function value() {
+            return this.filter.currentValue;
+        }
     }
-  },
-
-  computed: {
-    filter: function filter() {
-      return this.$store.getters[this.resourceName + '/getFilter'](this.filterKey);
-    },
-    value: function value() {
-      return this.filter.currentValue;
-    }
-  }
 });
 
 /***/ }),
@@ -308,30 +311,24 @@ var render = function() {
     _c(
       "h3",
       { staticClass: "text-sm uppercase tracking-wide text-80 bg-30 p-3" },
-      [_vm._v("\n    " + _vm._s(_vm.filter.name) + "\n  ")]
+      [_vm._v("\n        " + _vm._s(_vm.filter.name) + "\n    ")]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "p-2" },
-      [
-        _c(
-          "select-control",
-          {
-            staticClass: "block w-full form-control-sm form-select",
-            attrs: {
-              dusk: _vm.filter.name + "-filter-select",
-              value: _vm.value,
-              options: _vm.filter.options,
-              label: "name"
-            },
-            on: { change: _vm.handleChange }
-          },
-          [_c("option", { attrs: { value: "", selected: "" } }, [_vm._v("—")])]
-        )
-      ],
-      1
-    )
+    _c("div", { staticClass: "p-2" }, [
+      _c("input", {
+        staticClass:
+          "block w-full form-control-sm form-input form-input-bordered",
+        attrs: {
+          dusk: _vm.filter.name + "-filter-text",
+          type: "text",
+          placeholder: _vm.placeholder,
+          options: [],
+          label: "name"
+        },
+        domProps: { value: _vm.value },
+        on: { change: _vm.handleChange }
+      })
+    ])
   ])
 }
 var staticRenderFns = []

@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaComponents\SlideshowPlayer;
+namespace Reedware\NovaTextFilter;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
@@ -17,7 +17,7 @@ class FilterServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function(ServingNova $event) {
-            Nova::script('text-filter', __DIR__.'/../dist/js/text-filter.js');
+            Nova::script('text-filter', __DIR__.'/../dist/js/filter.js');
         });
     }
 
