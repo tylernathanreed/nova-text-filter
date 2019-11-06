@@ -1,7 +1,9 @@
 # Text Filter for Laravel Nova
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/reedware/nova-text-filter.svg?style=flat-square)](https://packagist.org/packages/reedware/nova-text-filter)
-[![Total Downloads](https://img.shields.io/packagist/dt/reedware/nova-text-filter.svg?style=flat-square)](https://packagist.org/packages/reedware/nova-text-filter)
+[![Total Downloads](https://img.shields.io/packagist/dt/reedware/nova-text-filter?style=flat-square)](https://packagist.org/packages/reedware/nova-text-filter)
+
+
 
 ## Installation
 
