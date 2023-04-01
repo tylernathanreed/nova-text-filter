@@ -1,20 +1,22 @@
 <template>
-    <div>
-        <h3 class="text-sm uppercase tracking-wide text-80 bg-30 p-3">
+    <div class="pt-2 pb-3" :dusk="`${filter.name}-filter-text-container`">
+        <h3 className="px-3 text-xs uppercase font-bold tracking-wide">
             {{ filter.name }}
         </h3>
 
-        <div class="p-2">
-            <input
-                :dusk="`${filter.name}-filter-text`"
-                class="block w-full form-control-sm form-input form-input-bordered"
-                type="text"
-                :placeholder="placeholder"
-                :value="value"
-                @change="handleChange"
-                :options="[]"
-                label="name"
-            />
+        <div className="mt-1 px-3">
+            <div class="flex relative">
+                <input
+                    :dusk="`${filter.name}-filter-text`"
+                    class="block w-full form-control-sm form-input form-input-bordered"
+                    type="text"
+                    :placeholder="placeholder"
+                    :value="value"
+                    @change="handleChange"
+                    :options="[]"
+                    label="name"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -32,6 +34,7 @@ export default {
         },
         lens: String
     },
+
 
     methods: {
         handleChange(event) {

@@ -1,5 +1,9 @@
 let mix = require('laravel-mix')
 
-mix.setPublicPath('dist')
-    .js('resources/js/filter.js', 'js')
-    // .sass('resources/sass/tool.scss', 'css')
+require('./nova.mix')
+
+mix
+  .setPublicPath('dist')
+  .js('resources/js/filter.js', 'js')
+  .vue({ version: 3 })
+  .nova('circlelinkhealth/nova-text-filter')
