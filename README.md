@@ -9,8 +9,16 @@
 
 You can install the package in to a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
+### For Nova v4
+
 ```bash
-composer require reedware/nova-text-filter
+composer require reedware/nova-text-filter:^2.0
+```
+
+### For Nova v3
+
+```bash
+composer require reedware/nova-text-filter:^1.0
 ```
 
 ## Usage
